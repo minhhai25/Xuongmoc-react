@@ -1,44 +1,10 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import $ from "jquery";
+
 import Slider from "react-slick";
 export default class TrangChu extends Component {
-  // componentDidMount() {
-  //   // Đảm bảo jQuery chỉ được chạy khi component đã mount
-  //   $(".slide-san-pham .slick-arrow").addClass("btn");
-  //   $(".slide-san-pham .slick-next").html(
-  //     '<i class="fa-solid fa-chevron-right"></i>'
-  //   );
-  //   $(".slide-san-pham .slick-prev").html(
-  //     '<i class="fa-solid fa-chevron-left"></i>'
-  //   );
-
-  //   window.addEventListener("resize", this.handleResize);
-
-  //   $(".dt_logo .slick-arrow").addClass("btn");
-  //   $(".dt_logo .slick-next").html('<i class="fa-solid fa-chevron-right"></i>');
-  //   $(".dt_logo .slick-prev").html('<i class="fa-solid fa-chevron-left"></i>');
-  // }
-
-  // componentWillUnmount() {
-  //   // Cleanup để tránh memory leaks
-  //   window.removeEventListener("resize", this.handleResize);
-  // }
-
-  // handleResize = () => {
-  //   $(".slide-san-pham .slick-arrow").addClass("btn");
-  //   $(".slide-san-pham .slick-next").html(
-  //     '<i class="fa-solid fa-chevron-right"></i>'
-  //   );
-  //   $(".slide-san-pham .slick-prev").html(
-  //     '<i class="fa-solid fa-chevron-left"></i>'
-  //   );
-
-  //   $(".dt_logo .slick-arrow").addClass("btn");
-  //   $(".dt_logo .slick-next").html('<i class="fa-solid fa-chevron-right"></i>');
-  //   $(".dt_logo .slick-prev").html('<i class="fa-solid fa-chevron-left"></i>');
-  // };
+  
   render() {
     var settingspr = {
       dots: false,
