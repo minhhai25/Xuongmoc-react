@@ -135,3 +135,6 @@ footer {
 }
 @media (max-width: 480px) {
 }
+.tamnhin>p {
+    padding-top: 0.5rem;
+}
