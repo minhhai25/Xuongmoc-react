@@ -4,7 +4,7 @@ export default class SanPham extends Component {
   render() {
     return (
       <>
-       <link rel="stylesheet" href="./css/sanpham.css"></link>
+        <link rel="stylesheet" href="./css/sanpham.css"></link>
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
@@ -92,11 +92,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -108,11 +112,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -124,11 +132,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -140,11 +152,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -166,11 +182,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -182,11 +202,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -198,11 +222,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -214,11 +242,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -240,11 +272,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -256,11 +292,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -272,11 +312,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -288,11 +332,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -314,11 +362,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -330,11 +382,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -346,11 +402,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -362,11 +422,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -388,11 +452,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -404,11 +472,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -420,11 +492,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -436,11 +512,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -462,11 +542,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -478,11 +562,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -494,11 +582,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -510,11 +602,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -536,11 +632,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -552,11 +652,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -568,11 +672,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -584,11 +692,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -610,11 +722,15 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -626,11 +742,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -642,11 +762,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -658,11 +782,15 @@ export default class SanPham extends Component {
               <p>(size vừa,nâu đậm)</p>
               <span className="price">8.999.000 VND</span>
             </div>
-            <div className="col-md-3 p-3">
+            <div className="col-md-3 p-3 product">
               <img
                 src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
                 alt=""
               />
+              <div className="addcart">
+                <i className="fa-solid fa-cart-shopping" />
+                <i className="fa-solid fa-heart" />
+              </div>
               <h5>Bàn uống nước</h5>
               <span>
                 <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />

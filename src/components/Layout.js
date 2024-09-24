@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import TrangChu from "./TrangChu"; 
-import GioiThieu from "./GioiThieu"; 
+// import TrangChu from "./TrangChu";
+import GioiThieu from "./GioiThieu";
 import SanPham from "./SanPham";
-import TinTuc from "./TinTuc"; 
-import DoiTac from "./DoiTac"; 
-import LienHe from "./LienHe"; 
-
+import TinTuc from "./TinTuc";
+import DoiTac from "./DoiTac";
+import LienHe from "./LienHe";
+import TrangChu from "./TrangChu";
 
 export default class Layout extends Component {
   render() {
@@ -50,6 +50,10 @@ export default class Layout extends Component {
                     </li>
                   </ul>
                 </nav>
+                <div className="cart-shopping d-flex align-items-center">
+                  <i className="fa-solid fa-cart-shopping" />
+                </div>
+
                 <div className="nav-btn">
                   <i className="fa-solid fa-bars" />
                 </div>

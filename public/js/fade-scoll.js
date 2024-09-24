@@ -1,3 +1,5 @@
+// import $ from "jquery"
+// import anime from "animejs";
 $(document).ready(function () {
   // Kiểm tra nếu phần tử trong viewport
   function isElementInViewport(el) {

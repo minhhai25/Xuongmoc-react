@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 export default class TrangChu extends Component {
-  
   render() {
     var settingspr = {
       dots: false,
@@ -172,6 +171,11 @@ export default class TrangChu extends Component {
                   <Slider {...settingspr}>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
@@ -204,6 +208,11 @@ export default class TrangChu extends Component {
                     </div>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
@@ -236,6 +245,11 @@ export default class TrangChu extends Component {
                     </div>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
@@ -268,6 +282,11 @@ export default class TrangChu extends Component {
                     </div>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
@@ -300,6 +319,11 @@ export default class TrangChu extends Component {
                     </div>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
@@ -332,6 +356,11 @@ export default class TrangChu extends Component {
                     </div>
                     <div className="product text-center p-2">
                       <img src="../AnhCat/sp-1.jpg" alt="" />
+                      <div className="addcart">
+                        <i className="fa-solid fa-cart-shopping" />
+                        <i className="fa-solid fa-heart" />
+                      </div>
+
                       <div className="info">
                         <h3>giường châu âu</h3>
                         <span>
