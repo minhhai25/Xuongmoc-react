@@ -52,7 +52,7 @@ export default class GioiThieu extends Component {
                   <h3>Tầm nhìn</h3>
                 </div>
                 <div className="tamnhin mx-5 fade-in-box">
-                  <img src="../AnhCat/banner.jpg" alt="" />
+                  <img src="../AnhCat/tamnhin.jpg" alt="" />
                   <p>
                     Chúng tôi luôn hướng đến việc tạo ra các sản phẩm nội thất
                     chất trên triết lý tôn trọng và giữ gìn những gì tự nhiên đã
