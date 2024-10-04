@@ -1,7 +1,80 @@
 import React, { Component } from "react";
-
+import axiosProductApi from "../api/products-api";
+import { Link } from "react-router-dom";
+// import { error } from "jquery";
 export default class SanPham extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      livingRoomProducts: [], //cid=7
+      bedroomProducts: [], //cid=8
+      kitchenProducts: [], //cid=10
+      bathroomProducts: [], //cid=10
+      kidroomProducts: [], //cid=11
+      officeProducts: [],
+      stairProducts: [],
+      decorateProducts: [],
+    };
+  }
+  componentDidMount() {
+    //gọi api để lấy danh sách sản phẩm
+    axiosProductApi
+      .get("")
+      .then((response) => {
+        //lọc sản phẩm từ cid
+        const livingRoomProducts = response.data.filter(
+          (product) => product.cid === 7
+        );
+        const bedroomProducts = response.data.filter(
+          (product) => product.cid === 8
+        );
+        const kitchenProducts = response.data.filter(
+          (product) => product.cid === 10
+        );
+        const bathroomProducts = response.data.filter(
+          (product) => product.cid === 11
+        );
+        const kidroomProducts = response.data.filter(
+          (product) => product.cid === 12
+        );
+        const officeProducts = response.data.filter(
+          (product) => product.cid === 13
+        );
+         const stairProducts = response.data.filter(
+           (product) => product.cid === 14
+         );
+          const decorateProducts = response.data.filter(
+            (product) => product.cid === 15
+          );
+        console.log(response.data);
+        this.setState({
+          livingRoomProducts: livingRoomProducts.slice(0, 4),
+          bedroomProducts: bedroomProducts.slice(0, 4),
+          kitchenProducts: kitchenProducts.slice(0, 4),
+          bathroomProducts: bathroomProducts.slice(0, 4),
+          kidroomProducts: kidroomProducts.slice(0, 4),
+          officeProducts: officeProducts.slice(0, 4),
+          stairProducts: stairProducts.slice(0, 4),
+          decorateProducts: decorateProducts.slice(0, 4),
+        });
+      })
+      .catch((error) => {
+        console.error("có lỗi xảy ra khi lấy sản phẩm ", error);
+        
+      });
+  }
+
   render() {
+    const {
+      livingRoomProducts,
+      bedroomProducts,
+      kitchenProducts,
+      bathroomProducts,
+      kidroomProducts,
+      officeProducts,
+      stairProducts,
+      decorateProducts,
+    } = this.state;
     return (
       <>
         <link rel="stylesheet" href="./css/sanpham.css"></link>
@@ -89,89 +162,48 @@ export default class SanPham extends Component {
             <h3>Phòng khách</h3>
           </div>
           <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+            <Link to="/products/7">Xem thêm</Link>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {livingRoomProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -182,86 +214,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {bedroomProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -272,86 +263,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {kitchenProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -362,86 +312,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {bathroomProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -452,86 +361,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {kidroomProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -542,86 +410,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {officeProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -632,86 +459,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {stairProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
         <div className="container sanpham p-5">
@@ -722,86 +508,45 @@ export default class SanPham extends Component {
             <a href="">xem thêm</a>
           </div>
           <div className="row fade-in-box">
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
+            {decorateProducts.map((product) => (
+              <div className="col-md-3 p-3 product" key={product.id}>
+                <img
+                  src={`http://apixm.devmaster.vn${product.image}`}
+                  alt={product.title}
+                />
+                <div className="addcart">
+                  <i className="fa-solid fa-cart-shopping" />
+                  <i className="fa-solid fa-heart" />
+                </div>
+                <h5>{product.title}</h5>
+                <span>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "#ffd43b" }}
+                  />
+                </span>
+                <p>
+                  ({product.size}, {product.metaKeyword})
+                </p>
+                <span className="price">{product.priceNew} VND</span>
               </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
-            <div className="col-md-3 p-3 product">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/P002-big.jpg"
-                alt=""
-              />
-              <div className="addcart">
-                <i className="fa-solid fa-cart-shopping" />
-                <i className="fa-solid fa-heart" />
-              </div>
-              <h5>Bàn uống nước</h5>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-                <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
-              </span>
-              <p>(size vừa,nâu đậm)</p>
-              <span className="price">8.999.000 VND</span>
-            </div>
+            ))}
           </div>
         </div>
       </>
