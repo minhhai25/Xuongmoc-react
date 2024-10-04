@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import axiosNewsApi from "../api/news-api";
 function TinTuc() {
-  const [news, setNews]= useState([]);
-  useEffect(()=>{
+  const [news, setNews] = useState([]);
+  useEffect(() => {
     getAllNews();
-    console.log(news)
-  },[]);
-  const getAllNews=async()=>{
+    console.log(news);
+  }, []);
+  const getAllNews = async () => {
     const resp = await axiosNewsApi.get("News");
     setNews(resp.data);
-   console.log(resp.data)
-  }
-  const elementNews = news.map((item,index)=>{
+    console.log(resp.data);
+    
+  };
+  const elementNews = news.map((item, index) => {
+          // console.log(`http://apixm.devmaster.vn${item.image}`);
+
     return (
       <>
         <div className="col-md-4 p-3">
-          <img
-            src={`http://apixm.devmaster.vn${item.image}`}
-            alt=""
-          />
+          <img src={`http://apixm.devmaster.vn${item.image}`} alt="  " />
           <h5>{item.title}</h5>
-          {item.description}
+          <div dangerouslySetInnerHTML={{ __html: item.description }} />
         </div>
       </>
     );
-  })
+  });
   return (
     <>
       <link rel="stylesheet" href="./css/tintuc.css"></link>
@@ -32,10 +32,7 @@ function TinTuc() {
         <div className="title">
           <h3>tin tức</h3>
         </div>
-        <div className="row">
-          {elementNews}
-          
-        </div>
+        <div className="row">{elementNews}</div>
         <div className="page">
           <nav aria-label="Page navigation example">
             <ul className="pagination">
@@ -72,4 +69,4 @@ function TinTuc() {
   );
 }
 
-export default TinTuc
+export default TinTuc;
