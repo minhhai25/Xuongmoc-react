@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import axiosProductApi from "../api/products-api";
 import Slider from "react-slick";
-export default class TrangChu extends Component {
-  render() {
-    var settingspr = {
+
+
+export default function Trangchu() {
+ var settingspr = {
       dots: false,
       infinite: false,
       speed: 300,
@@ -68,7 +69,43 @@ export default class TrangChu extends Component {
         },
       ],
     };
+// const [products,setProducts]= useState([]);
+// useEffect(()=>{
+//   getAllProducts();
 
+// },[]);
+// const getAllProducts = async ()=>{
+//   const resp = await axiosProductApi.get("Products");
+//   setProducts(resp.data);
+// }
+// const elementProduct= products.map((item,index)=>{
+//   return (
+//     <>
+//       <div className="product text-center p-2">
+//         <img src="../AnhCat/sp-1.jpg" alt="" />
+//         <div className="addcart">
+//           <i className="fa-solid fa-cart-shopping" />
+//           <i className="fa-solid fa-heart" />
+//         </div>
+
+//         <div className="info">
+//           <h3>giường châu âu</h3>
+//           <span>
+//             <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
+//             <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
+//             <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
+//             <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
+//             <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
+//           </span>
+//           <p className="dacdiem">(Size lớn, trắng sữa)</p>
+//           <p className="price">
+//             8.69.000 <span>VNĐ</span>
+//           </p>
+//         </div>
+//       </div>
+//     </>
+//   );
+// })
     return (
       <>
         <link rel="stylesheet" href="./css/index.css" />
@@ -626,4 +663,4 @@ export default class TrangChu extends Component {
       </>
     );
   }
-}
+
