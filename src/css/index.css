@@ -1,0 +1,389 @@
+.banner {
+  background-image: url(../AnhCat/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 590px;
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  /* font-weight: 1000; */
+  font-family: Gotham-Ultra;
+}
+h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  /* font-weight: 1000; */
+  color: #bd945f;
+  font-family: Gotham-Ultra;
+}
+.container > p {
+  width: 40%;
+}
+button {
+  background-color: #bd945f;
+  color: white;
+  border: none;
+}
+button.slick-arrow.slick-next::before,
+button.slick-arrow.slick-prev::before {
+  color: #bd945f;
+  font-size: 1.5rem;
+}
+
+button.p-2 > a {
+  color: white;
+}
+#productcate {
+  height: 318px;
+}
+#productcate .container {
+  position: relative;
+  background-color: white;
+}
+.danhmuc {
+  position: absolute;
+  left: 0;
+  top: -2rem;
+  background-color: white;
+  width: 100%;
+}
+.col-md-3 > img {
+  max-width: 100%;
+}
+.slide > .col-md-3 {
+  padding: 2rem;
+}
+.slide {
+  position: relative;
+}
+button.slick-prev.slick-arrow.btn {
+  position: absolute;
+  left: -3rem;
+  top: 30%;
+}
+button.slick-next.slick-arrow.btn {
+  position: absolute;
+  right: -3rem;
+  top: 30%;
+}
+section.body {
+  background-color: #f3f3f3;
+}
+/* .spnoibat.container.py-5 {
+  position: absolute;
+  top: 16rem;
+  left: 8rem;
+} */
+.product > img {
+  width: 100%;
+}
+.product h3 {
+  text-transform: uppercase;
+  font-size: medium;
+  margin-top: 1rem;
+  margin-bottom: 0 !important;
+  font-weight: 700;
+}
+p.price,
+p.dacdiem {
+  margin-bottom: 0;
+}
+p.dacdiem {
+  font-size: 13px;
+  /* font-weight: 700; */
+}
+
+.btn {
+  border-radius: 50%;
+  background-color: #bd945f;
+  color: white;
+}
+#aboutus {
+  background-image: url(../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/ve-chung-toi/bg-about-us.jpg);
+}
+h4.p-3.pt-0 {
+  margin-bottom: 0;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.container_3 {
+  color: white;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.title > h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 2rem auto;
+  position: relative;
+  width: fit-content;
+}
+.title > h3::before {
+  position: absolute;
+  top: 100%;
+  content: "";
+  width: 60%;
+  height: 0.2rem;
+  background-color: #bd945f;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container.aboutme,
+.li-do-chon {
+  position: relative;
+}
+.container.aboutme {
+  display: flex;
+}
+.aboutme_infor {
+  display: grid;
+}
+.aboutme_infor > h4 {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.col-md-3.px-2 > img {
+  width: 100%;
+}
+.col-md-6 {
+  background-color: white;
+  color: #2c2e53;
+  width: 47%;
+  margin: 0.6rem;
+  padding: 0.6rem;
+}
+.col-md-6 > img {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+}
+.ttnoibat__content > h5 {
+  padding-top: 1rem;
+}
+.container.row {
+  padding: 0 2.5rem;
+}
+
+.container_6 {
+  margin: 0 auto;
+  background-image: url(../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/lienhe-bg.jpg);
+  background-size: cover center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 16rem;
+  color: white;
+}
+
+/* .container-lg.row.animate {
+  
+} */
+
+.ttnoibat {
+  /* position: relative; */
+  margin: 0;
+  padding: 0;
+  background-color: #bd945f;
+}
+.ttnoibat > img {
+  width: 100%;
+}
+.ttnoibat__content {
+  /* position: absolute;
+  background-color: #bd945f;
+  bottom: -2rem; */
+  color: white;
+}
+
+.tintuc {
+  height: 30%;
+  width: 100%;
+  display: flex;
+}
+.tintuc_them {
+  text-align: start;
+}
+.tintuc_them > a {
+  padding: 0.5rem;
+  /* margin: 1rem; */
+  color: #bd945f;
+  background-color: white;
+}
+.tintuc > img {
+  width: 90%;
+  height: 90%;
+}
+.tintuc__content > h6 {
+  font-size: 1.2rem;
+  color: #bd945f;
+  text-align: start;
+  padding-left: 0.7rem;
+}
+.tintuc__content > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.7rem;
+  text-align: start;
+  padding-left: 0.7rem;
+}
+.container-lg.row {
+  /* padding-top: 2rem; */
+  padding-left: 10rem;
+}
+
+img.aos-init.aos-animate {
+  transform: translateZ(12);
+  width: 20%;
+  position: absolute;
+  top: -2rem;
+  left: 2rem;
+}
+input#email,
+input#submit {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: none;
+}
+input#email {
+  padding-left: 1rem;
+}
+/* .dt_logo > .slick-list.draggable > img {
+  width: 95%;
+  height: 95%;
+  margin: 1rem;
+} */
+.slick-slide {
+  padding-right: 15px; /* khoảng cách giữa các slide */
+}
+
+.slick-list {
+  padding-right: -15px; /* bù lại khoảng cách ở cuối slider để không tạo khoảng trống */
+}
+
+.title-contact,
+.box-form {
+  margin-top: 10rem;
+}
+.fade-in-box {
+  opacity: 0; /* Ẩn phần tử ban đầu */
+  transform: translateY(50px); /* Di chuyển phần tử xuống 50px */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+/* responsive */
+@media (min-width: 1400px) {
+  /* .container.aboutme{
+    display: unset ;
+    text-align: center;
+  } */
+  .img-aboutme > img {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+
+  .tintuc {
+    display: unset !important;
+    width: 100%;
+  }
+  .tintuc > img {
+    height: unset !important;
+  }
+}
+@media (max-width: 756px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  section#productcate,
+  section#Spnoibat {
+    display: none;
+    background-color: #f3f3f3;
+  }
+
+  .d-flex.col-md-6.col-sm-12 {
+    width: 100%;
+  }
+  .img-aboutme > img {
+    width: 100%;
+  }
+  .col-md-3.col-sm-3.px-2 {
+    display: none;
+  }
+  .container {
+    width: 80%;
+  }
+  .container > p {
+    display: none;
+  }
+}
+@media (max-width: 968px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .container.aboutme {
+    display: unset;
+    text-align: center;
+  }
+  .container {
+    width: 80%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-md-5.col-sm-12,
+  .aboutme_infor {
+    margin-top: 2rem;
+  }
+  section#productcate {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
+.slick-slide.slick-active {
+  padding: 0;
+}
+/* thêm css giỏ hàng */
+
+i.fa-solid.fa-cart-shopping {
+  padding-right: 2rem;
+}
+.product {
+  position: relative;
+}
+.product:hover::after {
+  content: ""; /* Thêm một lớp phủ */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+.addcart {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 40%;
+  display: none;
+}
+.product:hover .addcart {
+  display: block;
+}
