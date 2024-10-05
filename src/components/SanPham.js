@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axiosProductApi from "../api/products-api";
+import axiosApi from "../api/api";
 import { Link } from "react-router-dom";
 // import { error } from "jquery";
 export default class SanPham extends Component {
@@ -18,8 +18,8 @@ export default class SanPham extends Component {
   }
   componentDidMount() {
     //gọi api để lấy danh sách sản phẩm
-    axiosProductApi
-      .get("")
+    axiosApi
+      .get("Products")
       .then((response) => {
         //lọc sản phẩm từ cid
         const livingRoomProducts = response.data.filter(
@@ -40,12 +40,12 @@ export default class SanPham extends Component {
         const officeProducts = response.data.filter(
           (product) => product.cid === 13
         );
-         const stairProducts = response.data.filter(
-           (product) => product.cid === 14
-         );
-          const decorateProducts = response.data.filter(
-            (product) => product.cid === 15
-          );
+        const stairProducts = response.data.filter(
+          (product) => product.cid === 14
+        );
+        const decorateProducts = response.data.filter(
+          (product) => product.cid === 15
+        );
         console.log(response.data);
         this.setState({
           livingRoomProducts: livingRoomProducts.slice(0, 4),
@@ -60,7 +60,6 @@ export default class SanPham extends Component {
       })
       .catch((error) => {
         console.error("có lỗi xảy ra khi lấy sản phẩm ", error);
-        
       });
   }
 
@@ -77,7 +76,7 @@ export default class SanPham extends Component {
     } = this.state;
     return (
       <>
-        <link rel="stylesheet" href="./css/sanpham.css"></link>
+        {/* <link rel="stylesheet" href="./css/sanpham.css"></link> */}
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
@@ -158,22 +157,25 @@ export default class SanPham extends Component {
           </button>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>Phòng khách</h3>
           </div>
-          <div className="them fade-in-box">
+          <div className="them ">
             <Link to="/products/7">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {livingRoomProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -207,22 +209,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>Phòng ngủ</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/8">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {bedroomProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -256,22 +261,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>Phòng bếp</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/10">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {kitchenProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -305,22 +313,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>Phòng tắm</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/11">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {bathroomProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -354,22 +365,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>trẻ em</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/12">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {kidroomProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -403,22 +417,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>văn phòng</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/13">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {officeProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -452,22 +469,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>cầu thang</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/14">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {stairProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>
@@ -501,22 +521,25 @@ export default class SanPham extends Component {
           </div>
         </div>
         <div className="container sanpham p-5">
-          <div className="title fade-in-box">
+          <div className="title ">
             <h3>trang trí</h3>
           </div>
-          <div className="them fade-in-box">
-            <a href="">xem thêm</a>
+          <div className="them ">
+            <Link to="/products/15">Xem thêm</Link>
           </div>
-          <div className="row fade-in-box">
+          <div className="row ">
             {decorateProducts.map((product) => (
               <div className="col-md-3 p-3 product" key={product.id}>
-                <img
-                  src={`http://apixm.devmaster.vn${product.image}`}
-                  alt={product.title}
-                />
-                <div className="addcart">
-                  <i className="fa-solid fa-cart-shopping" />
-                  <i className="fa-solid fa-heart" />
+                <div className="box-product-top">
+                  <img
+                    className="w-100"
+                    src={`http://apixm.devmaster.vn${product.image}`}
+                    alt={product.title}
+                  />
+                  <div className="addcart">
+                    <i className="fa-solid fa-cart-shopping" />
+                    <i className="fa-solid fa-heart" />
+                  </div>
                 </div>
                 <h5>{product.title}</h5>
                 <span>

@@ -363,10 +363,11 @@ input#email {
 i.fa-solid.fa-cart-shopping {
   padding-right: 2rem;
 }
-.product {
+.box-product-top {
   position: relative;
+  
 }
-.product:hover::after {
+.product:hover .box-product-top::after {
   content: ""; /* Thêm một lớp phủ */
   position: absolute;
   top: 0;
@@ -381,7 +382,8 @@ i.fa-solid.fa-cart-shopping {
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: none;
 }
 .product:hover .addcart {

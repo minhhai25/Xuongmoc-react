@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axiosNewsApi from "../api/news-api";
+import axiosApi from "../api/api";
 function TinTuc() {
   const [news, setNews] = useState([]);
   useEffect(() => {
@@ -7,18 +7,17 @@ function TinTuc() {
     console.log(news);
   }, []);
   const getAllNews = async () => {
-    const resp = await axiosNewsApi.get("News");
+    const resp = await axiosApi.get("News");
     setNews(resp.data);
-    console.log(resp.data);
-    
+    console.log("News:", resp.data);
   };
   const elementNews = news.map((item, index) => {
-          // console.log(`http://apixm.devmaster.vn${item.image}`);
+    // console.log(`http://apixm.devmaster.vn${item.image}`);
 
     return (
       <>
         <div className="col-md-4 p-3">
-          <img src={`http://apixm.devmaster.vn${item.image}`} alt="  " />
+          <img src={`${item.image}`} alt="  " />
           <h5>{item.title}</h5>
           <div dangerouslySetInnerHTML={{ __html: item.description }} />
         </div>
