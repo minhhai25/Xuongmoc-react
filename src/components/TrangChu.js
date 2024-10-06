@@ -3,23 +3,39 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axiosApi from "../api/api";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+import Category from "./Category";
+import Partner from "./Partner";
 
 export default function Trangchu() {
-  const [products,setProducts]= useState([]);
-  useEffect(()=>{
+  const [products, setProducts] = useState([]);
+  const [news , setNews] = useState([]);
+  useEffect(() => {
     getProducts();
-  },[]);
-  const getProducts = async()=>{
-    const resp= await axiosApi.get("Products");
-    setProducts(resp.data);
+    getNew();
+  }, []);
+  const getProducts = async () => {
+    const resp = await axiosApi.get("Products");
+    const hotProduct = resp.data.filter((products) => products.hot === 1);
+    setProducts(hotProduct);
     console.log("Products:", resp.data);
+  };
+  const getNew = async () => {
+    const resp = await axiosApi.get("News");
+    const hotNews = resp.data.slice(0,3);
+    setNews(hotNews);
   }
-  const elementProduct=products.map((products)=>{
+  
+  const elementProduct = products.map((products) => {
     return (
       <>
-        <div className="product text-center p-2">
+        <div className="product text-center p-2" key={products.id}>
           <div className="box-product-top">
-            <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
+            <img
+              className="w-100"
+              src={`http://apixm.devmaster.vn${products.image}`}
+              alt=""
+            />
             <div className="addcart">
               <i className="fa-solid fa-cart-shopping" />
               <i className="fa-solid fa-heart" />
@@ -27,7 +43,7 @@ export default function Trangchu() {
           </div>
 
           <div className="info">
-            <h3>giường châu âu</h3>
+            <h5>{products.title}</h5>
             <span>
               <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
               <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
@@ -35,16 +51,28 @@ export default function Trangchu() {
               <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
               <i className="fa-solid fa-star" style={{ color: "#ffd43b" }} />
             </span>
-            <p className="dacdiem">(Size lớn, trắng sữa)</p>
-            <p className="price">
-              8.69.000 <span>VNĐ</span>
+            <p>
+              ({products.size}, {products.metaKeyword})
             </p>
+            <span className="price">{products.priceNew} VND</span>
           </div>
         </div>
       </>
     );
-  })
-
+  });
+const elementNew= news.map(
+  (news)=>{
+    return (
+      <div className="tintuc fade-in-box">
+        <img src={`${news.image}`} alt="  " />
+        <div className="tintuc__content">
+          <h6 >{news.title}</h6>
+          <p dangerouslySetInnerHTML={{ __html: news.description }} />
+        </div>
+      </div>
+    );
+  }
+)
   var settingspr = {
     dots: false,
     infinite: false,
@@ -78,36 +106,7 @@ export default function Trangchu() {
       // instead of a settings object
     ],
   };
-  var settingslogo = {
-    dots: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+ 
 
   return (
     <>
@@ -123,83 +122,12 @@ export default function Trangchu() {
               đình và những người thân yêu .
             </p>
             <button className="p-2">
-              <a href="./Lienhe.html">Liên hệ ngay</a>
+              <Link to="/lienhe">Liên hệ ngay</Link>
             </button>
           </div>
         </div>
       </section>
-      <section id="productcate">
-        <div className="container">
-          <div className="danhmuc">
-            <div className="row">
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-phong-khach.png"
-                  alt=""
-                />
-                <br />
-                <span>Phòng khách</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-phong-ngu.png"
-                  alt=""
-                />
-                <br />
-                <span>Phòng ngủ</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-phong-bep.png"
-                  alt=""
-                />
-                <br />
-                <span>Phòng bếp</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-phong-tam.png"
-                  alt=""
-                />
-                <br />
-                <span>Phòng tắm</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-tre-em.png"
-                  alt=""
-                />
-                <br />
-                <span>Trẻ em</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-van-phong.png"
-                  alt=""
-                />
-                <br />
-                <span>Văn phòng</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-cau-thang.png"
-                  alt=""
-                />
-                <br />
-                <span>Cầu thang</span>
-              </div>
-              <div className="col-md-3 text-center fade-in-box">
-                <img
-                  src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/loai-sp/icon-do-trang-tri.png"
-                  alt=""
-                />
-                <br />
-                <span>Đồ trang trí</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Category />
       <section id="Spnoibat">
         <div className="container">
           <div className="spnoibat py-5">
@@ -208,241 +136,7 @@ export default function Trangchu() {
             </div>
             <div className="slide">
               <div className="slide-san-pham ">
-                <Slider {...settingspr}>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="product text-center p-2">
-                    <div className="box-product-top">
-                      <img className="w-100" src="../AnhCat/sp-1.jpg" alt="" />
-                      <div className="addcart">
-                        <i className="fa-solid fa-cart-shopping" />
-                        <i className="fa-solid fa-heart" />
-                      </div>
-                    </div>
-                    <div className="info">
-                      <h3>giường châu âu</h3>
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#ffd43b" }}
-                        />
-                      </span>
-                      <p className="dacdiem">(Size lớn, trắng sữa)</p>
-                      <p className="price">
-                        8.69.000 <span>VNĐ</span>
-                      </p>
-                    </div>
-                  </div>
-                </Slider>
+                <Slider {...settingspr}>{elementProduct}</Slider>
               </div>
             </div>
           </div>
@@ -521,7 +215,7 @@ export default function Trangchu() {
           </div>
         </div>
       </section>
-      <div className="container text-center">
+      <div className="container text-center tin">
         <div className="title fade-in-box">
           <h3>tin tức</h3>
         </div>
@@ -531,104 +225,33 @@ export default function Trangchu() {
               src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/tin-tuc/tintuc-1.jpg"
               alt=""
             />
-            <div className="ttnoibat__content fade-in-box">
-              <h5>
-                Cách chọn Sofa cho phòng khách nhà bạn thêm phần sang trọng
+            <div className="ttnoibat__content fade-in-box px-2">
+              <h5 className="text-start">
+                Cách chọn Sofa cho phòng khách thêm phần sang trọng
               </h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Delectus deleniti fuga tempora mollitia vero? Rerum sunt
-                explicabo voluptates in laudantium blanditiis deserunt quia?
-                Asperiores, reprehenderit? Unde quam odit quis quisquam?
+              <p
+                className="
+              text-start"
+              >
+                Không phải ai trong chúng ta cũng biết cách chọn màu sofa cho
+                phòng khách trở nên sang trọng và đẹp mắt hơn. Tuy nhiên, đây là
+                yếu tố quyết định phần lớn đến tính thẩm mỹ của toàn bộ ngôi
+                nhà.
               </p>
             </div>
           </div>
           <div className="col-md-5 col-sm-12">
-            <div className="tintuc fade-in-box">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/tintuc-2.jpg"
-                alt=""
-              />
-              <div className="tintuc__content">
-                <h6>trang trí phòng khách cho thêm năng động</h6>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Nesciunt ea enim officiis ipsa praesentium, iusto blanditiis
-                  reiciendis corporis ullam, incidunt placeat molestiae a
-                  ratione, temporibus odio! Qui blanditiis odit repellat.
-                </p>
-              </div>
-            </div>
-            <div className="tintuc fade-in-box">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/tintuc-3.jpg"
-                alt=""
-              />
-              <div className="tintuc__content">
-                <h6>trang trí phòng khách cho thêm năng động</h6>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Nesciunt ea enim officiis ipsa praesentium, iusto blanditiis
-                  reiciendis corporis ullam, incidunt placeat molestiae a
-                  ratione, temporibus odio! Qui blanditiis odit repellat.
-                </p>
-              </div>
-            </div>
-            <div className="tintuc fade-in-box">
-              <img
-                src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/tintuc-4.jpg"
-                alt=""
-              />
-              <div className="tintuc__content">
-                <h6>trang trí phòng khách cho thêm năng động</h6>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Nesciunt ea enim officiis ipsa praesentium, iusto blanditiis
-                  reiciendis corporis ullam, incidunt placeat molestiae a
-                  ratione, temporibus odio! Qui blanditiis odit repellat.
-                </p>
-              </div>
-            </div>
+            {elementNew}
             <div className="tintuc_them">
-              <a href="/Html/Tintuc.html">Xem thêm</a>
+              <Link to="/tintuc">
+                Xem thêm <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+              {/* <a href="/Html/Tintuc.html">Xem thêm</a> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="container my-5">
-        <div className="title fade-in-box">
-          <h3>đối tác</h3>
-        </div>
-        <div className="dt_logo fade-in-box">
-          <Slider {...settingslogo}>
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/the-coffee-house.png"
-              alt="coffee"
-            />
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/marvella.png"
-              alt="marvella"
-            />
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/melissa.png"
-              alt="melissa"
-            />
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/muong-thanh.png"
-              alt="muong-thanh"
-            />
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/sheraton.png"
-              alt="sheraton"
-            />
-            <img
-              src="../AnhCat/AnhCatTC-20240709T030502Z-001/AnhCatTC/doi-tac/sunrise-sapa.png"
-              alt="sunrise-sapa"
-            />
-          </Slider>
-          {/* <img src="../AnhCat/dt-sunrise-sapa.jpg" alt=""> */}
-        </div>
-      </div>
+      <Partner />
       <section id="lienhe" className="Block container_6">
         <img
           src="../AnhCat/lienhe-bg-removed.png"

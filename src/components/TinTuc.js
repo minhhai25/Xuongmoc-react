@@ -4,12 +4,12 @@ function TinTuc() {
   const [news, setNews] = useState([]);
   useEffect(() => {
     getAllNews();
-    console.log(news);
+  
   }, []);
   const getAllNews = async () => {
     const resp = await axiosApi.get("News");
     setNews(resp.data);
-    console.log("News:", resp.data);
+
   };
   const elementNews = news.map((item, index) => {
     // console.log(`http://apixm.devmaster.vn${item.image}`);
@@ -17,7 +17,7 @@ function TinTuc() {
     return (
       <>
         <div className="col-md-4 p-3">
-          <img src={`${item.image}`} alt="  " />
+          <img src={`http://apixm.devmaster.vn${item.image}`} alt="  " />
           <h5>{item.title}</h5>
           <div dangerouslySetInnerHTML={{ __html: item.description }} />
         </div>

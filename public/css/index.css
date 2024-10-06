@@ -1,3 +1,6 @@
+.body{
+  background-color: white;
+}
 .banner {
   background-image: url(../AnhCat/banner.jpg);
   background-position: center;
@@ -204,9 +207,11 @@ h4.p-3.pt-0 {
   bottom: -2rem; */
   color: white;
 }
-
+/* .tin,.partner{
+  background-color: white;
+} */
 .tintuc {
-  height: 30%;
+  height: 230px;
   width: 100%;
   display: flex;
 }
@@ -224,6 +229,11 @@ h4.p-3.pt-0 {
   height: 90%;
 }
 .tintuc__content > h6 {
+  display: -webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 1.2rem;
   color: #bd945f;
   text-align: start;
@@ -365,7 +375,6 @@ i.fa-solid.fa-cart-shopping {
 }
 .box-product-top {
   position: relative;
-  
 }
 .product:hover .box-product-top::after {
   content: ""; /* Thêm một lớp phủ */

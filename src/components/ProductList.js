@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axiosApi from "../api/api";
 import { useParams } from "react-router-dom";
 import "../css/sanpham.css";
+import ProductItem from "../components/ProductItem"
 const ProductList = () => {
   const { cid } = useParams(); // Lấy cid từ URL
   const [products, setProducts] = useState([]);
@@ -50,48 +51,7 @@ const ProductList = () => {
         </div>
         <div className="row ">
           {products.length > 0 ? (
-            products.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
-            ))
+            products.map((product) => <ProductItem product={product} key={product.id}/>)
           ) : (
             <p>Không có sản phẩm nào.</p>
           )}

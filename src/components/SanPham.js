@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axiosApi from "../api/api";
 import { Link } from "react-router-dom";
+import ProductItem from "./ProductItem";
 // import { error } from "jquery";
 export default class SanPham extends Component {
   constructor(props) {
@@ -76,7 +77,7 @@ export default class SanPham extends Component {
     } = this.state;
     return (
       <>
-        {/* <link rel="stylesheet" href="./css/sanpham.css"></link> */}
+        
         <div
           id="carouselExampleCaptions"
           className="carousel slide"
@@ -165,46 +166,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {livingRoomProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -217,46 +179,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {bedroomProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -269,46 +192,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {kitchenProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -321,46 +205,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {bathroomProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -373,46 +218,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {kidroomProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -425,46 +231,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {officeProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -477,46 +244,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {stairProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>
@@ -529,46 +257,7 @@ export default class SanPham extends Component {
           </div>
           <div className="row ">
             {decorateProducts.map((product) => (
-              <div className="col-md-3 p-3 product" key={product.id}>
-                <div className="box-product-top">
-                  <img
-                    className="w-100"
-                    src={`http://apixm.devmaster.vn${product.image}`}
-                    alt={product.title}
-                  />
-                  <div className="addcart">
-                    <i className="fa-solid fa-cart-shopping" />
-                    <i className="fa-solid fa-heart" />
-                  </div>
-                </div>
-                <h5>{product.title}</h5>
-                <span>
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                  <i
-                    className="fa-solid fa-star"
-                    style={{ color: "#ffd43b" }}
-                  />
-                </span>
-                <p>
-                  ({product.size}, {product.metaKeyword})
-                </p>
-                <span className="price">{product.priceNew} VND</span>
-              </div>
+              <ProductItem product={product} key={product.id} />
             ))}
           </div>
         </div>

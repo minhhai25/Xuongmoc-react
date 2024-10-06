@@ -70,11 +70,7 @@ button.slick-next.slick-arrow.btn {
 section.body {
   background-color: #f3f3f3;
 }
-/* .spnoibat.container.py-5 {
-  position: absolute;
-  top: 16rem;
-  left: 8rem;
-} */
+
 .product > img {
   width: 100%;
 }
@@ -185,12 +181,7 @@ h4.p-3.pt-0 {
   color: white;
 }
 
-/* .container-lg.row.animate {
-  
-} */
-
 .ttnoibat {
-  /* position: relative; */
   margin: 0;
   padding: 0;
   background-color: #bd945f;
@@ -199,14 +190,11 @@ h4.p-3.pt-0 {
   width: 100%;
 }
 .ttnoibat__content {
-  /* position: absolute;
-  background-color: #bd945f;
-  bottom: -2rem; */
   color: white;
 }
 
 .tintuc {
-  height: 30%;
+  height: 200px;
   width: 100%;
   display: flex;
 }
@@ -224,6 +212,11 @@ h4.p-3.pt-0 {
   height: 90%;
 }
 .tintuc__content > h6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 1.2rem;
   color: #bd945f;
   text-align: start;
@@ -261,17 +254,13 @@ input#submit {
 input#email {
   padding-left: 1rem;
 }
-/* .dt_logo > .slick-list.draggable > img {
-  width: 95%;
-  height: 95%;
-  margin: 1rem;
-} */
+
 .slick-slide {
-  padding-right: 15px; /* khoảng cách giữa các slide */
+  padding-right: 15px;
 }
 
 .slick-list {
-  padding-right: -15px; /* bù lại khoảng cách ở cuối slider để không tạo khoảng trống */
+  padding-right: -15px;
 }
 
 .title-contact,
@@ -285,10 +274,6 @@ input#email {
 }
 /* responsive */
 @media (min-width: 1400px) {
-  /* .container.aboutme{
-    display: unset ;
-    text-align: center;
-  } */
   .img-aboutme > img {
     margin: 0 auto;
   }
@@ -306,7 +291,6 @@ input#email {
   }
 }
 @media (max-width: 756px) {
-  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   section#productcate,
   section#Spnoibat {
     display: none;
