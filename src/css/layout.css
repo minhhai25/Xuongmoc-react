@@ -1,13 +1,11 @@
 * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-size: 20px;
-    font-family: Gotham-Medium;
-    
-    
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 20px;
+  font-family: Gotham-Medium;
 }
-p{
+p {
   font-size: 0.8rem;
 }
 a {
@@ -76,8 +74,10 @@ footer > .row {
 .col-md-6 > h3 {
   text-transform: uppercase;
 }
-i.fa-brands.fa-facebook,.fa-regular.fa-envelope,.fa-brands.fa-twitter {
-    padding-right: 1rem;
+i.fa-brands.fa-facebook,
+.fa-regular.fa-envelope,
+.fa-brands.fa-twitter {
+  padding-right: 1rem;
 }
 @media (min-width: 1400px) {
   .container,
@@ -126,7 +126,7 @@ i.fa-brands.fa-facebook,.fa-regular.fa-envelope,.fa-brands.fa-twitter {
 }
 /* responsive */
 @media (max-width: 1023px) {
-  .container{
+  .container {
     width: 80%;
   }
   .nav-pc {
@@ -172,3 +172,19 @@ i.fa-brands.fa-facebook,.fa-regular.fa-envelope,.fa-brands.fa-twitter {
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
 }
+/* #cursor {
+  position: fixed;
+  top: calc(var(--cursor-size) * -0.5);
+  left: calc(var(--cursor-size) * -0.5);
+  mix-blend-mode: difference;
+  filter: url(#goo);
+}
+.cursor-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: var(--cursor-size);
+  transform-origin: center center;
+} */

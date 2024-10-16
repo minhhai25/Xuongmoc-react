@@ -9,7 +9,7 @@ import Partner from "./Partner";
 
 export default function Trangchu() {
   const [products, setProducts] = useState([]);
-  const [news , setNews] = useState([]);
+  const [news, setNews] = useState([]);
   useEffect(() => {
     getProducts();
     getNew();
@@ -22,10 +22,10 @@ export default function Trangchu() {
   };
   const getNew = async () => {
     const resp = await axiosApi.get("News");
-    const hotNews = resp.data.slice(0,3);
+    const hotNews = resp.data.slice(0, 3);
     setNews(hotNews);
-  }
-  
+  };
+
   const elementProduct = products.map((products) => {
     return (
       <>
@@ -60,19 +60,17 @@ export default function Trangchu() {
       </>
     );
   });
-const elementNew= news.map(
-  (news)=>{
+  const elementNew = news.map((news) => {
     return (
       <div className="tintuc fade-in-box">
         <img src={`${news.image}`} alt="  " />
         <div className="tintuc__content">
-          <h6 >{news.title}</h6>
+          <h6>{news.title}</h6>
           <p dangerouslySetInnerHTML={{ __html: news.description }} />
         </div>
       </div>
     );
-  }
-)
+  });
   var settingspr = {
     dots: false,
     infinite: false,
@@ -106,7 +104,6 @@ const elementNew= news.map(
       // instead of a settings object
     ],
   };
- 
 
   return (
     <>
@@ -115,6 +112,7 @@ const elementNew= news.map(
         <div className="banner">
           <div className="container py-5">
             <h1>Thế giới nội thất số 1 Việt Nam</h1>
+            <marquee direction="">hello</marquee>
             <h2>Hoàng hoan</h2>
             <p>
               Sứ mệnh của chúng tôi là kết hợp hài hòa gữa ý tưởng và mong muốn
