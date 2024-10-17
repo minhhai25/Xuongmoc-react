@@ -1,6 +1,12 @@
-import React from 'react'
- import "../css/sanpham.css";
-const ProductItem = ({ product})=>{
+import React from "react";
+import "../css/sanpham.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../actions/cartAction";
+const ProductItem = ({ product }) => {
+  const dispatch = useDispatch(); //sử dung dispatch để gửi action
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
   return (
     <div className="col-md-3 p-3 product" key={product.id}>
       <div className="box-product-top">
@@ -10,7 +16,7 @@ const ProductItem = ({ product})=>{
           alt={product.title}
         />
         <div className="addcart">
-          <i className="fa-solid fa-cart-shopping" />
+          <i className="fa-solid fa-cart-shopping" onClick={handleAddToCart} />
           <i className="fa-solid fa-heart" />
         </div>
       </div>
@@ -28,5 +34,5 @@ const ProductItem = ({ product})=>{
       <span className="price">{product.priceNew} VND</span>
     </div>
   );
-}
-export default ProductItem
+};
+export default ProductItem;

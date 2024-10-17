@@ -47,7 +47,7 @@ export default class SanPham extends Component {
         const decorateProducts = response.data.filter(
           (product) => product.cid === 15
         );
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           livingRoomProducts: livingRoomProducts.slice(0, 4),
           bedroomProducts: bedroomProducts.slice(0, 4),

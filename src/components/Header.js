@@ -42,8 +42,10 @@ export default class Header extends Component {
                   </li>
                 </ul>
               </nav>
-              <Cart />
-
+              {/* <Cart /> */}
+              <div className="cart-shopping d-flex align-items-center">
+                <i className="fa-solid fa-cart-shopping" />
+              </div>
               <div className="nav-btn">
                 <i className="fa-solid fa-bars" />
               </div>

@@ -1,5 +1,5 @@
 const initalState = {
-  item: [],
+  items: [],
 };
 export const cartReducer = (state = initalState, action) => {
   switch (action.type) {
@@ -9,6 +9,7 @@ export const cartReducer = (state = initalState, action) => {
       const existingProduct = state.items.find(
         (item) => item.id === product.id
       );
+      console.log("reducer ", product.id)
       if (existingProduct) {
         return {
           ...state,
