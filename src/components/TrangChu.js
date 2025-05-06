@@ -112,7 +112,7 @@ export default function Trangchu() {
         <div className="banner">
           <div className="container py-5">
             <h1>Thế giới nội thất số 1 Việt Nam</h1>
-            <marquee direction="">hello</marquee>
+            {/* <marquee direction="">hello</marquee> */}
             <h2>Hoàng hoan</h2>
             <p>
               Sứ mệnh của chúng tôi là kết hợp hài hòa gữa ý tưởng và mong muốn

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {  Link } from "react-router-dom";
-import Cart from "./Cart";
+
 export default class Header extends Component {
   render() {
     return (
@@ -42,10 +42,10 @@ export default class Header extends Component {
                   </li>
                 </ul>
               </nav>
-              {/* <Cart /> */}
-              <div className="cart-shopping d-flex align-items-center">
+            
+              {/* <div className="cart-shopping d-flex align-items-center">
                 <i className="fa-solid fa-cart-shopping" />
-              </div>
+              </div> */}
               <div className="nav-btn">
                 <i className="fa-solid fa-bars" />
               </div>

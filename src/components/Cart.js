@@ -1,22 +1,14 @@
-// import React, { Component } from 'react'
 
-// export default class Cart extends Component {
-//   render() {
-//     return (
-//       <>
-//         <div className="cart-shopping d-flex align-items-center">
-//           <i className="fa-solid fa-cart-shopping" />
-//         </div>
-//       </>
-//     );
-//   }
-// }
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'; // Import useSelector để lấy dữ liệu từ Redux
 
-export default function Cart() {
+const  Cart= ()=> {
   const cartItems = useSelector((state) => state.cart.items); // Lấy danh sách sản phẩm trong giỏ hàng
 console.log("cart", cartItems);
+//trạng thái giỏ hàng 
+const [isCartOpen,setCartOpen] = useState(false)
+//tính tổng số lượng sản phẩm trong giỏ hàng
+const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
   return (
     <div className="cart">
       <h2>Giỏ hàng</h2>

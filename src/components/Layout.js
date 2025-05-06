@@ -12,7 +12,19 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default class Layout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartItems: [],
+    };
+  }
+  addToCard = (product) => {
+    this.setState((prevState) => ({
+      cartItems: [...prevState.cartItems, product],
+    }));
+  };
   render() {
+    const{cartItems} = this.state;
     return (
       <Router>
         <>
@@ -22,13 +34,13 @@ export default class Layout extends Component {
             <Route path="/gioithieu" element={<GioiThieu />} />
 
             <Route path="/sanpham" element={<SanPham />} />
-            <Route path="/products/:cid" element={<ProductList />} />
+            <Route path="/products/:cid" element={<ProductList addToCard={this.addToCard} />} />
 
             <Route path="/tintuc" element={<TinTuc />} />
             <Route path="/doitac" element={<DoiTac />} />
             <Route path="/lienhe" element={<LienHe />} />
           </Routes>
-          <Footer/>
+          <Footer />
         </>
       </Router>
     );

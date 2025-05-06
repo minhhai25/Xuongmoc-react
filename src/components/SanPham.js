@@ -123,7 +123,6 @@ export default class SanPham extends Component {
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
-                <h4>Trải nghiệm không gian hiện đại</h4>
                 <button className="mua">Mua ngay</button>
               </div>
             </div>
